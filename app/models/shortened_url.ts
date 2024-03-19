@@ -11,6 +11,9 @@ export default class ShortenedUrl extends BaseModel {
   @column()
   declare shortenedUrl: string
 
+  @column()
+  declare visits: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
