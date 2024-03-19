@@ -9,6 +9,16 @@ export default class ShortenedUrlsController {
     return response.json(shortenedUrls)
   }
 
+  async redirect({ params, response }: HttpContext) {
+    const shortenedUrl = await ShortenedUrlsService.getByShortenedUrl(params.shortenedUrl)
+
+    if (!shortenedUrl) {
+      return response.status(404).json({ message: 'Not found' })
+    }
+
+    return response.redirect(shortenedUrl.originalUrl, false, 301)
+  }
+
   async store({ request, response }: HttpContext) {
     const payload = await request.validateUsing(createShortenedUrl)
     const shortenedUrl = await ShortenedUrlsService.create(payload)

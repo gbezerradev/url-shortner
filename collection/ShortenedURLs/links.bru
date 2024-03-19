@@ -6,6 +6,13 @@ meta {
 
 post {
   url: {{host}}/links
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "originalUrl": "x.com",
+    "shortenedUrl": "twitter2"
+  }
 }

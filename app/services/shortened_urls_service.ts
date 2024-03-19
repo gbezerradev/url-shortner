@@ -10,6 +10,10 @@ export default class ShortenedUrlsService {
     return await ShortenedUrl.all()
   }
 
+  static async getByShortenedUrl(shortenedUrl: string) {
+    return await ShortenedUrl.findBy('shortenedUrl', shortenedUrl)
+  }
+
   static async create(payload: IShortenedUrl) {
     const shortenedUrl = new ShortenedUrl()
     shortenedUrl.originalUrl = payload.originalUrl

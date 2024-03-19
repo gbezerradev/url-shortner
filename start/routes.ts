@@ -11,3 +11,5 @@ router
     router.post('/links', [ShortenedUrlsController, 'store'])
   })
   .prefix('api')
+
+router.get('/:shortenedUrl', [ShortenedUrlsController, 'redirect'])
