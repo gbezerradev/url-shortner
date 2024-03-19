@@ -6,6 +6,10 @@ type IShortenedUrl = {
 }
 
 export default class ShortenedUrlsService {
+  static async getAll() {
+    return await ShortenedUrl.all()
+  }
+
   static async create(payload: IShortenedUrl) {
     const shortenedUrl = new ShortenedUrl()
     shortenedUrl.originalUrl = payload.originalUrl

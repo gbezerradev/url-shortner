@@ -7,6 +7,7 @@ router
       return { status: 'ok' }
     })
 
+    router.get('/links', [ShortenedUrlsController, 'index'])
     router.post('/links', [ShortenedUrlsController, 'store'])
   })
   .prefix('api')
