@@ -1,4 +1,5 @@
 const ShortenedUrlsController = () => import('#controllers/shortened_urls_controller')
+const MigrationRunsController = () => import('#controllers/migration_runs_controller')
 import router from '@adonisjs/core/services/router'
 
 router
@@ -9,6 +10,8 @@ router
 
     router.get('/links', [ShortenedUrlsController, 'index'])
     router.post('/links', [ShortenedUrlsController, 'store'])
+
+    router.get('/migrations', [MigrationRunsController])
   })
   .prefix('api')
 
