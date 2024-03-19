@@ -22,4 +22,9 @@ export default class ShortenedUrlsService {
 
     return shortenedUrl
   }
+
+  static async incrementVisits(shortenedUrl: ShortenedUrl) {
+    shortenedUrl.visits++
+    await shortenedUrl.save()
+  }
 }

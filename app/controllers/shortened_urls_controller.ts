@@ -16,6 +16,8 @@ export default class ShortenedUrlsController {
       return response.status(404).json({ message: 'Not found' })
     }
 
+    await ShortenedUrlsService.incrementVisits(shortenedUrl)
+
     return response.redirect(shortenedUrl.originalUrl, false, 301)
   }
 
